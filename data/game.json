@@ -1,0 +1,156 @@
+{
+  "screen": { "width": 390, "height": 700 },
+  "time_step": 0.016666666666666666,
+
+  "hero": {
+    "speed": 120,
+    "hp": 100,
+    "radius": 12,
+    "magnet_radius": 60,
+    "picture": "hero.png"
+  },
+
+  "controls": {
+    "mouse_keep_walking_px": 12
+  },
+
+  "pictures": {
+    "floor": "floor.png",
+    "gem_xp_1": "gem_blue.png",
+    "gem_xp_2": "gem_pink.png",
+    "blade": "sword.png"
+  },
+
+  "sounds": {
+    "hit": { "file": "hit", "volume": 0.3, "min_gap": 0.06 },
+    "gem": { "file": "gem", "volume": 0.35, "min_gap": 0.05 },
+    "level_up": { "file": "level_up", "volume": 0.55, "min_gap": 0.0 },
+    "hurt": { "file": "hurt", "volume": 0.45, "min_gap": 0.12 },
+    "over": { "file": "end", "volume": 0.6, "min_gap": 0.0 },
+    "won": { "file": "win", "volume": 0.6, "min_gap": 0.0 }
+  },
+
+  "feel": {
+    "damage_number": { "life": 0.5, "rise_px": 50, "max_shown": 24, "font_px": 22 },
+    "death_flash": { "life": 0.18, "start_scale": 0.6, "end_scale": 2.0, "max_alpha": 220 },
+    "hurt_shake": { "life": 0.15, "px": 5 }
+  },
+
+  "xp": { "first_need": 5, "need_step": 3 },
+  "win_time": 120.0,
+  "max_weapons": 3,
+  "heal_card": { "label": "Heal", "short": "Heal", "amount": 30, "text": "Heal 30 HP" },
+
+  "gems": { "fly_speed": 300 },
+
+  "weapons": {
+    "spark": {
+      "label": "Spark Wand",
+      "short": "Spark",
+      "kind": "projectile",
+      "projectile": { "speed": 400, "radius": 4, "max_distance": 500 },
+      "levels": [
+        { "damage": 20, "interval": 0.8, "count": 1, "text": "20 damage, 1 spark every 0.8 s" },
+        { "damage": 13, "interval": 0.72, "count": 1, "text": "13 damage, 1 spark every 0.72 s" },
+        { "damage": 16, "interval": 0.64, "count": 2, "text": "16 damage, 2 sparks every 0.64 s" },
+        { "damage": 19, "interval": 0.56, "count": 2, "text": "19 damage, 2 sparks every 0.56 s" },
+        { "damage": 22, "interval": 0.48, "count": 3, "text": "22 damage, 3 sparks every 0.48 s" }
+      ]
+    },
+    "blades": {
+      "label": "Spin Blades",
+      "short": "Blades",
+      "kind": "orbit",
+      "orbit": { "radius": 60, "period": 1.5, "blade_radius": 8, "hit_interval": 0.5 },
+      "levels": [
+        { "damage": 8, "count": 2, "text": "2 blades, 8 damage each" },
+        { "damage": 11, "count": 3, "text": "3 blades, 11 damage each" },
+        { "damage": 14, "count": 3, "text": "3 blades, 14 damage each" },
+        { "damage": 17, "count": 4, "text": "4 blades, 17 damage each" },
+        { "damage": 20, "count": 4, "text": "4 blades, 20 damage each" }
+      ]
+    },
+    "ring": {
+      "label": "Holy Ring",
+      "short": "Ring",
+      "kind": "ring",
+      "levels": [
+        { "damage": 5, "radius": 50, "interval": 0.5, "text": "5 damage in a 50 px circle" },
+        { "damage": 7, "radius": 60, "interval": 0.5, "text": "7 damage in a 60 px circle" },
+        { "damage": 9, "radius": 70, "interval": 0.5, "text": "9 damage in a 70 px circle" },
+        { "damage": 11, "radius": 80, "interval": 0.5, "text": "11 damage in an 80 px circle" },
+        { "damage": 13, "radius": 90, "interval": 0.5, "text": "13 damage in a 90 px circle" }
+      ]
+    }
+  },
+
+  "passives": {
+    "boots": {
+      "label": "Swift Boots",
+      "short": "Boots",
+      "stat": "speed",
+      "per_level": 0.1,
+      "levels": [
+        { "text": "+10% walking speed" },
+        { "text": "+20% walking speed" },
+        { "text": "+30% walking speed" },
+        { "text": "+40% walking speed" },
+        { "text": "+50% walking speed" }
+      ]
+    },
+    "heart": {
+      "label": "Big Heart",
+      "short": "Heart",
+      "stat": "max_hp",
+      "per_level": 20,
+      "levels": [
+        { "text": "+20 max HP and heal 20" },
+        { "text": "+20 max HP and heal 20" },
+        { "text": "+20 max HP and heal 20" },
+        { "text": "+20 max HP and heal 20" },
+        { "text": "+20 max HP and heal 20" }
+      ]
+    },
+    "magnet": {
+      "label": "Magnet",
+      "short": "Magnet",
+      "stat": "magnet_radius",
+      "per_level": 30,
+      "levels": [
+        { "text": "+30 px gem magnet" },
+        { "text": "+60 px gem magnet" },
+        { "text": "+90 px gem magnet" },
+        { "text": "+120 px gem magnet" },
+        { "text": "+150 px gem magnet" }
+      ]
+    }
+  },
+
+  "enemy_hit_interval": 0.5,
+
+  "enemy_types": {
+    "bat":   { "hp": 8, "speed": 100, "damage": 5, "xp": 1, "radius": 10, "picture": "bat.png" },
+    "slime": { "hp": 30, "speed": 55, "damage": 8, "xp": 2, "radius": 12, "picture": "slime.png" },
+    "ghost": { "hp": 15, "speed": 135, "damage": 6, "xp": 2, "radius": 10, "picture": "ghost.png" },
+    "demon": { "hp": 800, "speed": 85, "damage": 20, "xp": 0, "radius": 16, "picture": "demon.png", "picture_scale": 2, "boss": true }
+  },
+
+  "spawning": {
+    "every": 1.0,
+    "max_per_second": 8,
+    "circle_radius": 380,
+    "max_alive": 120,
+    "despawn_distance": 700,
+    "boss_return_distance": 600,
+    "table": [
+      { "from": 0.0,  "min_alive": 12, "types": ["bat"] },
+      { "from": 15.0, "min_alive": 20, "types": ["bat"] },
+      { "from": 30.0, "min_alive": 28, "types": ["bat", "slime"] },
+      { "from": 45.0, "min_alive": 36, "types": ["slime", "ghost"] },
+      { "from": 60.0, "min_alive": 45, "types": ["bat", "ghost"] },
+      { "from": 75.0, "min_alive": 55, "types": ["bat", "slime", "ghost"] },
+      { "from": 90.0, "min_alive": 55, "types": ["bat", "slime"], "boss": "demon" },
+      { "from": 105.0, "min_alive": 75, "types": ["bat"] }
+    ]
+  }
+}
